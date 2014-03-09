@@ -18,3 +18,4 @@
 *.app
 *.sublime-project
 *.sublime-workspace
+.build
