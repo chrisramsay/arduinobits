@@ -10,7 +10,7 @@ void setup() {
 }
 
 void loop() {
-    // Set device address
+    // Set device address (0x55 is the factory set default address)
     int address = 0x55;
     // Get object temperature
     Serial.print("Object temp : ");
@@ -20,5 +20,6 @@ void loop() {
     Serial.print("Ambient temp: ");
     Serial.print(mlx.getAmbTemp(address));
     Serial.println(" C");
-    delay(1000);
+    // Wait a little
+    delay(2000);
 }
