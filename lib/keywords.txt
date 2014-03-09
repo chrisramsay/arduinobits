@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map for MLX90614
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MLX90614 	KEYWORD1
+factor		KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+getReading	KEYWORD2
+getAmbTemp	KEYWORD2
+getObjTemp	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+TEMP_AMB	LITERAL1
+TEMP_OBJ	LITERAL1
