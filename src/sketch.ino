@@ -4,13 +4,13 @@
 MLX90614 mlx;
 
 void setup() {
-	Serial.begin(9600);
+    Serial.begin(9600);
     Wire.begin();
-	Serial.println("Setup.");
+    Serial.println("Setup.");
 }
 
 void loop() {
-	// Set device address
+    // Set device address
     int address = 0x55;
     // Get object temperature
     Serial.print("Object temp : ");

@@ -7,23 +7,30 @@ MLX90614::MLX90614()
   factor = 0.02; // MLX90614 has a resolution of .02
 }
    
-//modifies tempData into temperature in Kelvin
+// Get the reading from the sensor
 double MLX90614::getReading(int address, unsigned char ttype)
 {
   int data_low, data_high, pec;
   double tempData;
 
-  tempData = 0x0000; //zero out the data
-  Wire.beginTransmission(address); //begins transmission with device
-  Wire.write(ttype); //sends register address to read
-  Wire.endTransmission(0); //repeated start
-     
-  Wire.requestFrom(address, 3); //request three bytes from device
+  tempData = 0x0000;
+  // Begin transmission with device
+  Wire.beginTransmission(address);
+  // Send register address to read - 0x06 for ambient, 0x07 for object
+  Wire.write(ttype);
+  // The 'mysterious' repeated start
+  Wire.endTransmission(0);
+  // Request three bytes from device
+  Wire.requestFrom(address, 3); 
     
-  while(Wire.available() <3); //wait for three bytes to become available
-  data_low = Wire.read(); //read first byte
-  data_high = Wire.read(); //read second byte
-  pec = Wire.read(); //read checksum 
+  // Wait for three bytes to become available
+  while(Wire.available() <3);
+  // Read first byte
+  data_low = Wire.read();
+  // Read second byte
+  data_high = Wire.read();
+  // Read checksum 
+  pec = Wire.read();
      
   Wire.endTransmission(); //terminate transmission
      

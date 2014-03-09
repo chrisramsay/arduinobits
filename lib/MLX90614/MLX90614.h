@@ -28,7 +28,6 @@ class MLX90614
   
   //global variable
   double factor;
-  double tempData;
  
 };
 
