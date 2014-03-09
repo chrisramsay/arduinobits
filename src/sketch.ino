@@ -10,11 +10,15 @@ void setup() {
 }
 
 void loop() {
-	float celsius = 0;
+	// Set device address
     int address = 0x55;
-    celsius = mlx.getObjTemp(address);
-    Serial.print("Temperature: ");
-    Serial.print(celsius);
+    // Get object temperature
+    Serial.print("Object temp : ");
+    Serial.print(mlx.getObjTemp(address));
+    Serial.println(" C");
+    // Get ambient temperature
+    Serial.print("Ambient temp: ");
+    Serial.print(mlx.getAmbTemp(address));
     Serial.println(" C");
     delay(1000);
 }
