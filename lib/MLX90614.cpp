@@ -11,7 +11,7 @@ MLX90614::MLX90614()
 double MLX90614::getReading(int address, unsigned char ttype)
 {
   int data_low, data_high, pec;
-  double tempData
+  double tempData;
 
   tempData = 0x0000; //zero out the data
   Wire.beginTransmission(address); //begins transmission with device
@@ -22,7 +22,6 @@ double MLX90614::getReading(int address, unsigned char ttype)
     
   while(Wire.available() <3); //wait for three bytes to become available
   data_low = Wire.read(); //read first byte
-  
   data_high = Wire.read(); //read second byte
   pec = Wire.read(); //read checksum 
      

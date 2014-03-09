@@ -6,7 +6,8 @@
 #ifndef MLX90614_h
 #define MLX90614_h
 
-#include "Arduino.h"
+#include <Arduino.h>
+#include <Wire.h>
 
 #define TEMP_AMB 0x06
 #define TEMP_OBJ 0x07
@@ -23,7 +24,7 @@ class MLX90614
    
   private:
   //class-only methods
-  void getReading(int address, int ttype);
+  double getReading(int address, unsigned char ttype);
   
   //global variable
   double factor;
