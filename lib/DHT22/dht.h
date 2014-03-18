@@ -28,8 +28,6 @@
 class dht
 {
 public:
-    int read11(uint8_t pin);
-    int read21(uint8_t pin);
     int read22(uint8_t pin);
 
     double humidity;

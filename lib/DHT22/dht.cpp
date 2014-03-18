@@ -42,42 +42,6 @@
 // DHTLIB_OK
 // DHTLIB_ERROR_CHECKSUM
 // DHTLIB_ERROR_TIMEOUT
-int dht::read11(uint8_t pin)
-{
-    // READ VALUES
-    int rv = read(pin);
-    if (rv != DHTLIB_OK)
-    {
-        humidity    = DHTLIB_INVALID_VALUE; // invalid value, or is NaN prefered?
-        temperature = DHTLIB_INVALID_VALUE; // invalid value
-        return rv;
-    }
-
-    // CONVERT AND STORE
-    humidity    = bits[0];  // bits[1] == 0;
-    temperature = bits[2];  // bits[3] == 0;
-
-    // TEST CHECKSUM
-    // bits[1] && bits[3] both 0
-    uint8_t sum = bits[0] + bits[2];
-    if (bits[4] != sum) return DHTLIB_ERROR_CHECKSUM;
-
-    return DHTLIB_OK;
-}
-
-// return values:
-// DHTLIB_OK
-// DHTLIB_ERROR_CHECKSUM
-// DHTLIB_ERROR_TIMEOUT
-int dht::read21(uint8_t pin)
-{
-    return read22(pin);  // dataformat identical to DHT22
-}
-
-// return values:
-// DHTLIB_OK
-// DHTLIB_ERROR_CHECKSUM
-// DHTLIB_ERROR_TIMEOUT
 int dht::read22(uint8_t pin)
 {
     // READ VALUES
